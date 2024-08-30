@@ -2,7 +2,7 @@ require('dotenv').config()
 const express=require('express')
 const app=express();
 const Post=require('./models/Post')
-
+const port = process.env.PORT || 4000;
 const db=require('./config/db')
 db().then((data)=>{
   console.log('server connected to db');
@@ -47,6 +47,6 @@ app.put('/api/post/:id',(req,res)=>{
 
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
   console.log('server is running on port 3000')
 })
